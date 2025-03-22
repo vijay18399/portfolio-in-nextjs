@@ -1,0 +1,160 @@
+export default function handler(req, res) {
+  res.status(200).json({
+    "styles": {},
+    "sections": [
+      {
+        "id": 9,
+        "title": "Header",
+        "template": "Header",
+        "data": {
+          "title": "VJ",
+          "description": "",
+          "links": [
+            {  "title": "Home", "href": "/" },
+            {  "title": "Portfolio", "href": "/portfolio" },
+            {  "title": "LinkedIn", "href": "linkedin.com/in/vijay18399"},
+            {  "title": "Github", "href": "https://github.com/vijay18399"}
+          ]
+        }
+      },
+      {
+        "id": 1,
+        "title": "Intro",
+        "template": "Intro",
+        "data": {
+          "title": "Hey 👋🏻 <br> I'm Vijay Reddy Medapati",
+          "imageUrl":"/images/profile.png",
+          "description": "Front-End Engineer with 4 years of experience in React, Next.js, and Angular, building dynamic and efficient web applications. Worked on AI learning tools, internal apps, and a custom web builder. Focused on performance, responsive design, and delivering seamless user experiences.",
+          "links": [
+            { "title": "Download Resume", "href": "/resume.pdf" }
+          ],
+        }
+      },
+      {
+        "id": 2,
+        "title": "Experience",
+        "template": "Section",
+        "data": {
+          "styles": {
+            "backgroundColor": "#ffffff",
+          },
+          "title": "Experience",
+          "description": "Work experience across multiple industries, building web applications, AI tools, and enterprise solutions."
+        },
+        "children": [
+          {
+            "id": 1,
+            "title": "Next Education",
+            "template": "Experience",
+            "data": {
+              "title": "Next Education",
+              "description": "Engineer at Next Education, Hyderabad.",
+              "logo": "/images/nexteducation.png",
+              "location": "Hyderabad, Telangana",
+              "role": "Engineer",
+              "duration": "Aug 2022 - Present",
+              "responsibilities": "Developed features from scratch in the JS R&D team, including a React + GrapesJS Web Builder and 10+ AI-driven learning tools. Built an Angular + Electron internal app, automated AR DB generation with Node.js, and migrated 12+ Flash-based 2D simulations. Engineered a Fabric.js annotation tool and optimized libraries in a fast-paced environment.",
+            }
+          },
+          {
+            "id": 2,
+            "title": "TCS",
+            "template": "Experience",
+            "data": {
+              "title": "Tata Consultancy Services",
+              "description": "Assistant System Engineer at TCS.",
+              "logo": "/images/TCS.png",
+              "location": "Remote",
+              "role": "Assistant System Engineer",
+              "duration": "July 2019 - Sept 2020",
+              "responsibilities": "Supported and enhanced .NET applications with an Angular front-end, optimizing performance and usability. Wrote SQL queries for reports and data fixes, upgraded 200+ servers, and implemented cascading dropdowns for dynamic reporting."
+            }
+          },
+          {
+            "id": 3,
+            "title": "Mounty",
+            "template": "Experience",
+            "data": {
+              "title": "Mounty",
+              "description": "Frontend Developer Intern at Mounty.",
+              "logo": "/images/mounty.png",
+              "location": "Hyderabad, Telangana",
+              "role": "Frontend Developer Intern",
+              "duration": "July 2019 - Sept 2019",
+              "responsibilities": "Worked as part of the UI team, developing with Nuxt.js and Vue.js. Refactored the codebase to create reusable components, enhancing maintainability. Developed a Campground Host Page for owners to upload campsite details, images, and videos to boost visitor engagement."
+            }
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "SimpleBanner",
+        "template": "SimpleBanner",
+        "data": {
+          "description": "Thinking of a new project? Got any doubts? I'm here to help!",
+          "links": [
+            { "title": "Contact Me", "href": "https://wa.me/916301832161?text=Hello%20there!" }
+          ],
+        }
+      },
+      {
+        "id": 3,
+        "title": "Portfolio",
+        "template": "Section",
+        "data": {
+          "styles": {
+            "backgroundColor": "#ffffff",
+          },
+          "title": "Portfolio",
+          "description": "A collection of my personal and professional projects."
+        },
+        "children": [
+          {
+            "id": 1,
+            "title": "Spell Bee Game",
+            "template": "Portfolio",
+            "data": {
+              "title": "Spell Bee Game",
+              "description": "A spelling practice app with categorized word difficulty levels.",
+              "route": "portfolio/spell-bee",
+              "image": "https://vijay18399.github.io/images/projects/spell-bee.jpg"
+            }
+          },
+          {
+            "id": 2,
+            "title": "Dictionary",
+            "template": "Portfolio",
+            "data": {
+              "title": "Dictionary",
+              "description": "An interactive dictionary application.",
+              "route": "portfolio/dictionary",
+              "image": "https://vijay18399.github.io/images/projects/dictionary.png"
+            }
+          },
+          {
+            "id": 3,
+            "title": "Paint Tool",
+            "template": "Portfolio",
+            "data": {
+              "title": "Paint Tool",
+              "description": "A digital painting tool with advanced features.",
+              "route": "portfolio/paint-tool",
+              "image": "https://vijay18399.github.io/images/projects/paint-tool.png"
+            }
+          },
+          {
+            "id": 4,
+            "title": "Yes!! Hungry",
+            "template": "Portfolio",
+            "data": {
+              "title": "Yes!! Hungry",
+              "description": "A fun and interactive food-themed game.",
+              "route": "portfolio/yes-hungry",
+              "image": "https://vijay18399.github.io/images/projects/game.png"
+            }
+          }
+        ]
+      },
+    ]
+  });
+}

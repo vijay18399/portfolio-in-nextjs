@@ -1,0 +1,38 @@
+{
+    "words": [
+          { "class":1, "category": "Animals", "word": "Alligator", "definition": "A large semiaquatic reptile similar to a crocodile.", "partOfSpeech": "noun", "pronunciation": "/ˈælɪˌɡeɪtər/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Bear", "definition": "A large, heavy mammal with thick fur.", "partOfSpeech": "noun", "pronunciation": "/ber/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Bull", "definition": "An adult male bovine animal.", "partOfSpeech": "noun", "pronunciation": "/bʊl/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Camel", "definition": "A large, long-necked ungulate native to dry regions.", "partOfSpeech": "noun", "pronunciation": "/ˈkæməl/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Cat", "definition": "A small domesticated carnivorous mammal.", "partOfSpeech": "noun", "pronunciation": "/kæt/", "difficulty": "easy"},
+          { "class":1, "category": "Animals", "word": "Cow", "definition": "A domesticated bovine animal kept for milk or meat.", "partOfSpeech": "noun", "pronunciation": "/kaʊ/", "difficulty": "easy"},
+          { "class":1, "category": "Animals", "word": "Crab", "definition": "A crustacean with a broad shell and pincers.", "partOfSpeech": "noun", "pronunciation": "/kræb/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Deer", "definition": "A hoofed grazing animal with antlers.", "partOfSpeech": "noun", "pronunciation": "/dɪr/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Dog", "definition": "A domesticated carnivorous mammal known for loyalty.", "partOfSpeech": "noun", "pronunciation": "/dɔɡ/", "difficulty": "easy"},
+          { "class":1, "category": "Animals", "word": "Dolphin", "definition": "A highly intelligent aquatic mammal.", "partOfSpeech": "noun", "pronunciation": "/ˈdɒlfɪn/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Elephant", "definition": "A large mammal with a trunk and tusks.", "partOfSpeech": "noun", "pronunciation": "/ˈɛlɪfənt/", "difficulty": "hard"},
+          { "class":1, "category": "Animals", "word": "Fox", "definition": "A small, carnivorous mammal with a bushy tail.", "partOfSpeech": "noun", "pronunciation": "/fɒks/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Frog", "definition": "A small amphibian with long legs for jumping.", "partOfSpeech": "noun", "pronunciation": "/frɒɡ/", "difficulty": "easy"},
+          { "class":1, "category": "Animals", "word": "Goat", "definition": "A domesticated ruminant animal with horns.", "partOfSpeech": "noun", "pronunciation": "/ɡoʊt/", "difficulty": "easy"},
+          { "class":1, "category": "Animals", "word": "Horse", "definition": "A large domesticated mammal used for riding.", "partOfSpeech": "noun", "pronunciation": "/hɔrs/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Lion", "definition": "A large, carnivorous feline known as the king of the jungle.", "partOfSpeech": "noun", "pronunciation": "/ˈlaɪən/", "difficulty": "medium"},
+          { "class":1, "category": "Animals", "word": "Monkey", "definition": "A primate with a long tail that climbs trees.", "partOfSpeech": "noun", "pronunciation": "/ˈmʌŋki/", "difficulty": "easy"},
+          { "class":1, "category": "Animals", "word": "Mouse", "definition": "A small rodent with a pointed snout.", "partOfSpeech": "noun", "pronunciation": "/maʊs/", "difficulty": "easy"},
+          { "class":1, "category": "Animals", "word": "Tiger", "definition": "A large, striped feline predator.", "partOfSpeech": "noun", "pronunciation": "/ˈtaɪɡər/", "difficulty": "hard"},
+          { "class":1, "category": "Animals", "word": "Wolf", "definition": "A wild carnivorous mammal similar to a dog.", "partOfSpeech": "noun", "pronunciation": "/wʊlf/", "difficulty": "hard"},
+          { "class": 1, "category": "Birds", "word": "Cock", "definition": "An adult male chicken.", "partOfSpeech": "noun", "pronunciation": "/kɑːk/", "difficulty": "easy" },
+          { "class": 1, "category": "Birds", "word": "Crane", "definition": "A tall wading bird with a long neck.", "partOfSpeech": "noun", "pronunciation": "/kreɪn/", "difficulty": "medium" },
+          { "class": 1, "category": "Birds", "word": "Crow", "definition": "A large, black bird with a harsh call.", "partOfSpeech": "noun", "pronunciation": "/kroʊ/", "difficulty": "easy" },
+          { "class": 1, "category": "Colours", "word": "Black", "definition": "The darkest color, the absence of light.", "partOfSpeech": "noun", "pronunciation": "/blæk/", "difficulty": "easy" },
+          { "class": 1, "category": "Colours", "word": "Blue", "definition": "A color that resembles the sky on a clear day.", "partOfSpeech": "noun", "pronunciation": "/bluː/", "difficulty": "easy" },
+          { "class": 1, "category": "Body parts", "word": "Arm", "definition": "The upper limb of the human body.", "partOfSpeech": "noun", "pronunciation": "/ɑːrm/", "difficulty": "easy" },
+          { "class": 1, "category": "Body parts", "word": "Eye", "definition": "The organ of vision in humans and animals.", "partOfSpeech": "noun", "pronunciation": "/aɪ/", "difficulty": "easy" },
+          { "class": 1, "category": "Food items", "word": "Bread", "definition": "A food made of flour, water, and yeast.", "partOfSpeech": "noun", "pronunciation": "/brɛd/", "difficulty": "easy" },
+          { "class": 1, "category": "Food items", "word": "Cheese", "definition": "A dairy product made from curdled milk.", "partOfSpeech": "noun", "pronunciation": "/tʃiːz/", "difficulty": "easy" },
+          { "class": 1, "category": "Household items", "word": "Chair", "definition": "A piece of furniture designed to sit on.", "partOfSpeech": "noun", "pronunciation": "/tʃɛr/", "difficulty": "easy" },
+          { "class": 1, "category": "Household items", "word": "Table", "definition": "A piece of furniture with a flat top.", "partOfSpeech": "noun", "pronunciation": "/ˈteɪbəl/", "difficulty": "easy" },
+          { "class": 1, "category": "Occupation", "word": "Doctor", "definition": "A qualified practitioner of medicine.", "partOfSpeech": "noun", "pronunciation": "/ˈdɑːktər/", "difficulty": "medium" },
+          { "class": 1, "category": "Occupation", "word": "Teacher", "definition": "A person who teaches, especially in a school.", "partOfSpeech": "noun", "pronunciation": "/ˈtiːtʃər/", "difficulty": "medium" }
+        ]
+  }
+  

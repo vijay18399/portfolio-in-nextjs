@@ -1,0 +1,104 @@
+/* Reset some basic HTML elements */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+html {
+  font-size: 100%; /* Set base font size to 16px */
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Or your preferred font family */
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333; /* Default text color */
+  background-color: #fff; /* Default background color */
+  -webkit-font-smoothing: antialiased; /* Improve text rendering on Webkit browsers */
+  -moz-osx-font-smoothing: grayscale; /* Improve text rendering on Firefox for macOS */
+}
+
+/* Remove list styling */
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Reset anchor tags */
+a {
+  text-decoration: none;
+  color: inherit; /* Make links inherit the text color */
+}
+
+/* Remove borders on images and inputs */
+img, picture, svg, video {
+  max-width: 100%;
+  display: block;
+}
+
+input, button, textarea, select {
+  background: transparent;
+  border: none;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+
+/* Avoid underlines on links in buttons and interactive elements */
+button, a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Clear table borders */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+}
+
+/* Adjust spacing and line height for various elements */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: bold;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* Remove default styles on form elements */
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  display: none;
+}
+
+textarea {
+  resize: none; /* Disable resizing on textareas */
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Apply consistent box-sizing across all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
