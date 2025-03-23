@@ -106,9 +106,20 @@ export default function handler(req, res) {
             "backgroundColor": "#ffffff",
           },
           "title": "Portfolio",
-          "description": "A collection of my personal and professional projects."
+          "description": "A collection of my personal  projects."
         },
         "children": [
+          {
+            "id": 21,
+            "title": "Portfolio Editor",
+            "template": "Portfolio",
+            "data": {
+              "title": "Portfolio Editor",
+              "description": "A portfolio editor.",
+              "route": "?edit=true",
+              "image": "/images/portfolio/portfolio-editor.png"
+            }
+          },
           {
             "id": 1,
             "title": "Spell Bee Game",
@@ -121,25 +132,25 @@ export default function handler(req, res) {
             }
           },
           {
-            "id": 2,
-            "title": "Dictionary",
+            "id": 14,
+            "title": "Speak Right",
             "template": "Portfolio",
             "data": {
-              "title": "Dictionary",
-              "description": "An interactive dictionary application.",
-              "route": "portfolio/dictionary",
-              "image": "https://vijay18399.github.io/images/projects/dictionary.png"
+              "title": "Speak Right Tool",
+              "description": "A Speak Right tool.",
+              "route": "portfolio/pronunciation",
+              "image": "/images/portfolio/pronunciation_banner.png"
             }
           },
           {
             "id": 3,
-            "title": "Paint Tool",
+            "title": "ngBoard",
             "template": "Portfolio",
             "data": {
-              "title": "Paint Tool",
+              "title": "ngBoard",
               "description": "A digital painting tool with advanced features.",
-              "route": "portfolio/paint-tool",
-              "image": "https://vijay18399.github.io/images/projects/paint-tool.png"
+              "route": "https://vijay18399.github.io/ngBoard/",
+              "image": "/images/portfolio/ngBoard.png"
             }
           },
           {

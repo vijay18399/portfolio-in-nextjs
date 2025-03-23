@@ -1,9 +1,9 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import LevelSelection from '@/pages/components/spell-bee/LevelSelection';
-import GameBoard from '@/pages/components/spell-bee/GameBoard';
-import GameOver from '@/pages/components/spell-bee/GameOver';
+import LevelSelection from '@/components/spell-bee/LevelSelection';
+import GameBoard from '@/components/spell-bee/GameBoard';
+import GameOver from '@/components/spell-bee/GameOver';
 import { useSelector, useDispatch } from 'react-redux'; 
 
 import { setLoading, setWords, increment, resetGame,updateWordStatus  } from '@/features/page/wordSlice';
@@ -12,21 +12,14 @@ export default function SpellBee() {
   const router = useRouter();
   const dispatch = useDispatch();
   const { words, currentWordIndex, loading } = useSelector((state) => state.word);
-
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [userInput, setUserInput] = useState([]);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [timer, setTimer] = useState(600);
   const [isGameOver, setIsGameOver] = useState(false);
-
   const [attempts, setAttempts] = useState(0);
-  const [correctAnswers, setCorrectAnswers] = useState([]);
-  const [incorrectAnswers, setIncorrectAnswers] = useState([]);
-
   const handleCardClick = (level) => setSelectedLevel(level);
-
   const handleStartGame = () => router.push(`/portfolio/spell-bee?level=${selectedLevel}`).catch(() => alert('Navigation failed'));
-
   const colors = {
     A1: 'linear-gradient(45deg, #E53935, #8E24AA)',
     A2: 'linear-gradient(60deg, #FF7043, #009688)',
@@ -66,7 +59,6 @@ export default function SpellBee() {
       }
     }
   };
-
   const handleAudioPlay = () => {
     if (words[currentWordIndex]?.voice) {
       setIsAudioPlaying(true);
@@ -77,7 +69,6 @@ export default function SpellBee() {
       };
     }
   };
-
   const playConfettiSound = () => {
     const sound = new Audio('/sounds/success.mp3');
     sound.play();
@@ -89,12 +80,11 @@ export default function SpellBee() {
     fetchWords(router.query.level);
     setTimer(600);
   };
-
   const handleSubmit = () => {
     const correctWord = words[currentWordIndex]?.word;
     const userAnswer = userInput.join('');
     const isAnswerCorrect = userAnswer.toLowerCase() === correctWord.toLowerCase();
-    dispatch(updateWordStatus({ index: currentWordIndex, isCorrect: isAnswerCorrect }));
+    dispatch(updateWordStatus({ index: currentWordIndex, isCorrect: isAnswerCorrect, userAnswer : userAnswer }));
     if (isAnswerCorrect) {
       playConfettiSound();
       if (currentWordIndex === words.length - 1) {

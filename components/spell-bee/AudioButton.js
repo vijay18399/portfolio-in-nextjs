@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaVolumeUp } from 'react-icons/fa';
 import { Audio as AudioIcon } from 'react-loader-spinner';
-import { ButtonToListen } from './StyledComponents';
+import { ButtonToListen } from '../common/StyledComponents';
 
 const AudioButton = ({ handleAudioPlay, isAudioPlaying }) => (
   <ButtonToListen onClick={handleAudioPlay} disabled={isAudioPlaying}>

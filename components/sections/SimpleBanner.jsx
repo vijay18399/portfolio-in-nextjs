@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SectionControls from '@/pages/components/main/SectionControls';
+import SectionControls from '@/components/main/SectionControls';
 import Link from "next/link";
 
 export default function SimpleBanner({ data }) {

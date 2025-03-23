@@ -4,8 +4,8 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import AudioButton from './AudioButton';
 import TimerDisplay from './TimerDisplay';
-import { StyledCard, Header, QuestionTrack, Content, InputContainer, Input, Button, SkipButton } from './StyledComponents';
-import { StyledContainer } from './StyledComponents';
+import { StyledCard, Header, QuestionTrack, Content, InputContainer, Input, Button, SkipButton } from '../common/StyledComponents';
+import { StyledContainer } from '../common/StyledComponents';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment } from '@/features/page/wordSlice';
 

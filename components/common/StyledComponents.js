@@ -26,11 +26,14 @@ display: flex;
 `;
 
 export const StyledTitle = styled.h1`
-  font-size: 32px;
-  margin-bottom: 40px;
-  color: var(--text-default-title);
-  font-weight: 700;
-  text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: var(--text-default-title);
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export const LevelsContainer = styled.div`
@@ -68,6 +71,9 @@ export const StartButton = styled.button`
   color: var(--text-static-white);
   border: none;
   border-radius: 30px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
   background-color: ${(props) => (props.disabled ? '#aaa' : '#1469C0')};
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: background-color 0.3s ease;
@@ -126,9 +132,10 @@ export const ButtonToListen = styled.button`
 `;
 
 export const InputContainer = styled.div`
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 `;
 
 export const Input = styled.input`
@@ -169,4 +176,10 @@ export const SkipButton = styled.button`
     outline: none;
     box-shadow: 0 0 0 3px rgba(56, 56, 110, 0.5);
   }
+`;
+
+export const StyledDescription = styled.p`
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
 `;

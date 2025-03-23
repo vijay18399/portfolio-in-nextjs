@@ -1,12 +1,12 @@
-import Section from "@/pages/components/main/Section";
-import IntroSection from "@/pages/components/sections/Intro";
-import Experience from "@/pages/components/blocks/Experience";
-import Header from "@/pages/components/sections/Header";
-import SimpleBanner from "@/pages/components/sections/SimpleBanner";
-import Portfolio from "@/pages/components/blocks/Portfolio";
-import SectionPlaceHolder from '@/pages/components/main/SectionPlaceHolder'
-import GitHubCalendar from "@/pages/components/sections/GitHubCalendar";
-import FeaturedBanner from "@/pages/components/sections/FeaturedBanner";
+import Section from "@/components/main/Section";
+import IntroSection from "@/components/sections/Intro";
+import Experience from "@/components/blocks/Experience";
+import Header from "@/components/sections/Header";
+import SimpleBanner from "@/components/sections/SimpleBanner";
+import Portfolio from "@/components/blocks/Portfolio";
+import SectionPlaceHolder from '@/components/main/SectionPlaceHolder'
+import GitHubCalendar from "@/components/sections/GitHubCalendar";
+import FeaturedBanner from "@/components/sections/FeaturedBanner";
 const templateMap = {
     "Section": {
         component: Section,

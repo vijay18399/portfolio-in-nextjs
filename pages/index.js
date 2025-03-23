@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import DynamicSections from "@/pages/components/main/DynamicSections";
-import SectionEditorContainer from '@/pages/components/sidebar/SectionEditorContainer'
+import DynamicSections from "@/components/main/DynamicSections";
+import SectionEditorContainer from '@/components/sidebar/SectionEditorContainer'
 import { globalContext } from "@/context/GlobalContext";
-import SideBar from '@/pages/components/sidebar/SideBar';
+import SideBar from '@/components/sidebar/SideBar';
 import { init } from '@/features/page/pageSlice'
 import { useSelector, useDispatch } from 'react-redux'
 

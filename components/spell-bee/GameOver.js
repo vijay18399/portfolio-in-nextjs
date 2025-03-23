@@ -1,6 +1,6 @@
 import React, {useState,useEffect  } from 'react';
 import styled from 'styled-components';
-import { StyledContainer, StyledCard, StartButton } from './StyledComponents';
+import { StyledContainer, StyledCard, StartButton } from '../common/StyledComponents';
 import { CheckCircle, XCircle, Star, Smile, Frown, SkipForward } from 'lucide-react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -58,7 +58,7 @@ export default function GameOver({ handleReStartGame }) {
         <SectionContainer>
           {correctAnswers.length > 0 && (
             <Section>
-              <SectionHeader><CheckCircle color="#43A047" /> Correct </SectionHeader>
+              <SectionHeader><CheckCircle color="#43A047" /> Correct Answers</SectionHeader>
               <AnswerList>
                 {correctAnswers.map((word, index) => (
                   <CorrectAnswer key={index}>{word.word}</CorrectAnswer>
@@ -67,21 +67,31 @@ export default function GameOver({ handleReStartGame }) {
             </Section>
           )}
 
-          {incorrectAnswers.length > 0 && (
-            <Section>
-              <SectionHeader><XCircle color="#D32F2F" /> Incorrect </SectionHeader>
-              <AnswerList>
-                {incorrectAnswers.map((item, index) => (
-                  <AnswerItem key={index}>
-                    <IncorrectAnswer>{item.word}</IncorrectAnswer>
-                    {item.isSkipped && (
-                      <SkippedText><SkipForward size={14} /> Skipped</SkippedText>
-                    )}
-                  </AnswerItem>
-                ))}
-              </AnswerList>
-            </Section>
-          )}
+{incorrectAnswers.length > 0 && (
+  <Section>
+    <SectionHeader><XCircle color="#D32F2F" /> Incorrect Answers</SectionHeader>
+    <AnswerList>
+      {incorrectAnswers.map((item, index) => (
+        <AnswerItem key={index}>
+          <IncorrectAnswer>
+            <strong>Actual Answer:</strong> {item.word}
+          </IncorrectAnswer>
+          {item.userAnswer ? (
+            <IncorrectAnswer>
+              <strong>Your Answer:</strong> {item.userAnswer}
+            </IncorrectAnswer>
+          ) : item.isSkipped ? (
+            <SkippedText>
+              <SkipForward size={14} /> Skipped
+            </SkippedText>
+          ) : null}
+        </AnswerItem>
+      ))}
+    </AnswerList>
+  </Section>
+)}
+
+
         </SectionContainer>
        
         <StartButton onClick={handleReStartGame} aria-label="Restart the Game">Play Again</StartButton>
@@ -137,7 +147,6 @@ const SectionHeader = styled.h2`
 `;
 
 const AnswerList = styled.ul`
-  list-style-type: none;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -145,8 +154,9 @@ const AnswerList = styled.ul`
 `;
 
 const AnswerItem = styled.li`
-  display: flex;
-  align-items: center;
+      display: flex;
+    align-items: center;
+    gap: 10px;
 `;
 
 const CorrectAnswer = styled.span`

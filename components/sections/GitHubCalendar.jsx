@@ -1,6 +1,6 @@
 import React from 'react';
 import GitHubCalendar from 'react-github-calendar';
-import SectionControls from '@/pages/components/main/SectionControls';
+import SectionControls from '@/components/main/SectionControls';
 import styled from 'styled-components';
 
 const GitHubCalendarSection = ({ data }) => {

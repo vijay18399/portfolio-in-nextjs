@@ -1,6 +1,6 @@
 import React from 'react';
 import { Watch } from 'react-loader-spinner';
-import { TimerText } from './StyledComponents';
+import { TimerText } from '../common/StyledComponents';
 
 const TimerDisplay = ({ timer }) => (
   <TimerText>

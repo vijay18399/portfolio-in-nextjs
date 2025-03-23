@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledContainer, StyledCard, StyledTitle, LevelsContainer, StyledLevelCard, StartButton } from './StyledComponents';
+import { StyledContainer, StyledCard, StyledTitle, LevelsContainer, StyledLevelCard, StartButton } from '../common/StyledComponents';
 
 const LevelSelection = ({ selectedLevel, handleCardClick, handleStartGame, cefrLevels, colors }) => (
   <StyledContainer>

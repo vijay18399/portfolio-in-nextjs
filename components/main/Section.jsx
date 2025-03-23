@@ -1,5 +1,5 @@
 import templateMap from "@/utils/templateMap";
-import SectionControls from '@/pages/components/main/SectionControls';
+import SectionControls from '@/components/main/SectionControls';
 import styled from "styled-components";
 
 export default function Section({ data }) {
