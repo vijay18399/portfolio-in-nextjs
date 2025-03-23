@@ -160,7 +160,7 @@ export default function handler(req, res) {
             "data": {
               "title": "Yes!! Hungry",
               "description": "A fun and interactive food-themed game.",
-              "route": "portfolio/yes-hungry",
+              "route": "https://vijay18399.github.io/#/yes-hungry",
               "image": "https://vijay18399.github.io/images/projects/game.png"
             }
           }
