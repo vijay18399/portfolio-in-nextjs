@@ -1,13 +1,70 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragOverlay,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+  useSortable,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { Eye, EyeOff, GripVertical } from "lucide-react";
 import styled from "styled-components";
 import { toggleVisibility, reorderSections, setSelectedSectionId } from "@/features/page/pageSlice";
 
+function SortableItem({ id, section, handleToggleVisibility, handleSectionClick }) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition: isDragging ? 'none' : transition,
+    zIndex: isDragging ? 1 : 'auto',
+    position: 'relative',
+  };
+
+  return (
+    <DraggableSection
+      ref={setNodeRef}
+      style={style}
+      onClick={() => handleSectionClick(section.id)}
+      className={isDragging ? "dragging" : ""}
+      {...attributes}
+      {...listeners}
+    >
+      <GripIcon className="grip" />
+      <SectionTitle>{section.title}</SectionTitle>
+      <VisibilityButton onClick={(e) => {
+        e.stopPropagation();
+        handleToggleVisibility(section.id);
+      }}>
+        {section.hidden ? <EyeOff /> : <Eye />}
+      </VisibilityButton>
+    </DraggableSection>
+  );
+}
+
 export default function SectionHandler() {
   const page = useSelector((state) => state.page.value);
   const selectedSectionId = useSelector(state => state.page.value.selectedSectionId);
+  const dispatch = useDispatch();
+  const [activeId, setActiveId] = useState(null);
+
   useEffect(() => {
     if (selectedSectionId) {
       const sectionElement = document.getElementById(selectedSectionId);
@@ -16,54 +73,85 @@ export default function SectionHandler() {
       }
     }
   }, [selectedSectionId]);
-  const dispatch = useDispatch();
 
-  const onDragEnd = (result) => {
-    if (!result.destination) return;
-    dispatch(
-      reorderSections({
-        sourceIndex: result.source.index,
-        destinationIndex: result.destination.index,
-      })
-    );
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8, // Need to move 8px before dragging starts
+      },
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  const handleDragStart = (event) => {
+    setActiveId(event.active.id);
+  };
+
+  const handleDragEnd = (event) => {
+    setActiveId(null);
+    const { active, over } = event;
+    
+    if (active.id !== over.id) {
+      const oldIndex = page.sections.findIndex(section => section.id === active.id);
+      const newIndex = page.sections.findIndex(section => section.id === over.id);
+      
+      dispatch(
+        reorderSections({
+          sourceIndex: oldIndex,
+          destinationIndex: newIndex,
+        })
+      );
+    }
   };
 
   const handleToggleVisibility = (id) => {
     dispatch(toggleVisibility({ id }));
   };
-  const handleSectionClick = (id) => {
-    dispatch(setSelectedSectionId(id)); // Dispatch action to set the selected section ID
-  };
-  return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="sections" direction="vertical">
-        {(provided) => (
-          <SectionHandlerContainer ref={provided.innerRef} {...provided.droppableProps}>
-            {page.sections.map((section, index) => (
-              <Draggable key={`${section.id}`} draggableId={`${section.id}`} index={index}>
-                {(provided, snapshot) => (
-                  <DraggableSection
-                    onClick={() => handleSectionClick(section.id)}
 
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    className={snapshot.isDragging ? "dragging" : ""}
-                  >
-                    <GripIcon className="grip" />
-                    <SectionTitle>{section.title}</SectionTitle>
-                    <VisibilityButton onClick={() => handleToggleVisibility(section.id)}>
-                      {section.hidden ? <EyeOff /> : <Eye />}
-                    </VisibilityButton>
-                  </DraggableSection>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </SectionHandlerContainer>
-        )}
-      </Droppable>
-    </DragDropContext>
+  const handleSectionClick = (id) => {
+    dispatch(setSelectedSectionId(id));
+  };
+
+  const activeItem = activeId ? page.sections.find(section => section.id === activeId) : null;
+
+  return (
+    <DndContext
+      sensors={sensors}
+      collisionDetection={closestCenter}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+    >
+      <SortableContext
+        items={page.sections.map(section => section.id)}
+        strategy={verticalListSortingStrategy}
+      >
+        <SectionHandlerContainer>
+          {page.sections.map((section) => (
+            <SortableItem
+              key={section.id}
+              id={section.id}
+              section={section}
+              handleToggleVisibility={handleToggleVisibility}
+              handleSectionClick={handleSectionClick}
+            />
+          ))}
+        </SectionHandlerContainer>
+      </SortableContext>
+      
+      <DragOverlay>
+        {activeItem ? (
+          <DraggableSectionOverlay>
+            <GripIcon className="grip" />
+            <SectionTitle>{activeItem.title}</SectionTitle>
+            <VisibilityButton>
+              {activeItem.hidden ? <EyeOff /> : <Eye />}
+            </VisibilityButton>
+          </DraggableSectionOverlay>
+        ) : null}
+      </DragOverlay>
+    </DndContext>
   );
 }
 
@@ -86,7 +174,8 @@ const DraggableSection = styled.div`
   border: 1px solid var(--border-color);
   box-shadow: var(--box-shadow-sm);
   cursor: grab;
-  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  touch-action: none; // Important for pointer events on touch devices
 
   &:hover {
     background-color: var(--bg-primary);
@@ -97,8 +186,24 @@ const DraggableSection = styled.div`
   }
 
   &.dragging {
-    transform: scale(1.02);
+    opacity: 0.5;
+    background-color: var(--bg-primary);
   }
+`;
+
+const DraggableSectionOverlay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow-lg);
+  cursor: grabbing;
+  width: 100%;
+  opacity: 1;
+  z-index: 100;
 `;
 
 const GripIcon = styled(GripVertical)`
