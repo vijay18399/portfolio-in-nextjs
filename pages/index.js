@@ -5,11 +5,13 @@ import { globalContext } from "@/context/GlobalContext";
 import SideBar from '@/components/sidebar/SideBar';
 import { init } from '@/features/page/pageSlice'
 import { useSelector, useDispatch } from 'react-redux'
-
+import path from 'path'
+import fs from 'fs';
 export async function getStaticProps () {
-  const res = await fetch("http://localhost:3000/portfolio-in-nextjs/api/portfolio");
-  const portfolio = await res.json();
-  return { props: { portfolio } };
+  const filePath = path.join(process.cwd(), 'public', 'data', 'portfolio.json');
+    const jsonData = fs.readFileSync(filePath, 'utf-8');
+    const portfolio = JSON.parse(jsonData);
+    return { props: { portfolio } };
 }
 
 export default function Home({ portfolio }) {
