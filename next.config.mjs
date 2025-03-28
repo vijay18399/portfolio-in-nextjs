@@ -6,6 +6,7 @@ const nextConfig = {
   basePath: "/portfolio-in-nextjs", 
   assetPrefix: "/portfolio-in-nextjs/",
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
