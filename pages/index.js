@@ -6,8 +6,8 @@ import SideBar from '@/components/sidebar/SideBar';
 import { init } from '@/features/page/pageSlice'
 import { useSelector, useDispatch } from 'react-redux'
 
-export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/portfolio");
+export async function getStaticProps () {
+  const res = await fetch("http://localhost:3000/portfolio-in-nextjs/api/portfolio");
   const portfolio = await res.json();
   return { props: { portfolio } };
 }

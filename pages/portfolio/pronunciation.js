@@ -2,8 +2,8 @@ import Sentence from '@/components/pronunciation/Sentence';
 import { StyledContainer,StyledCard,StartButton } from '@/components/common/StyledComponents'
 import React, { useState, useEffect } from 'react';
 import InitScreen from '@/components/pronunciation/InitScreen'
-export async function getServerSideProps() {
-    const res = await fetch('http://localhost:3000/api/pronunciation');
+export async function getStaticProps () {
+    const res = await fetch('http://localhost:3000/portfolio-in-nextjs/api/pronunciation');
     const data = await res.json();
     return {
         props: {
