@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
             href="https://ui-avatars.com/api/?format=svg&background=ffffff&color=000000&name=Vijay+Reddy"
           />
           <Script
-            src="http://stickerjs.cmiscm.com/js/sticker.min.js"
+            src="/portfolio-in-nextjs/libraries/sticker.min.js"
             strategy="beforeInteractive"
           />
         </Head>
