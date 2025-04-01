@@ -4,7 +4,8 @@ import store from '@/store'
 import { Provider } from 'react-redux'
 import { GlobalProvider } from "@/context/GlobalContext";
 import { Lato, Plus_Jakarta_Sans } from 'next/font/google';
-
+import '@/styles/portfolio.css'
+import '@/styles/editor.css'
 const lato = Lato({
   weight: ['400', '700'],
   style: ['normal', 'italic'],

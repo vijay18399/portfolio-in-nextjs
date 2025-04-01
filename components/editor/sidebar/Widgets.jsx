@@ -1,12 +1,12 @@
 import { addSection } from "@/features/page/pageSlice";
-import { TicketSlash, Github, PanelTop, SquareUser, Code, Youtube } from "lucide-react";
-import styled from "styled-components";
+import { TicketSlash, Github,Briefcase, PanelTop, SquareUser, Layers, Youtube } from "lucide-react";
 import { useSelector, useDispatch } from 'react-redux'; 
 
-export default function Widgets() {
+export default function Widgets({onClose}) {
   const dispatch = useDispatch();
 
   const onAddSection = (widget) => {
+    onClose()
     dispatch(addSection(widget.component));
   };
 
@@ -21,7 +21,7 @@ export default function Widgets() {
           "title": "Hey 👋🏻 <br> I'm Vijay Reddy Medapati",
           "imageUrl": "/images/profile.png",
           "description": "Front-End Engineer with 4 years of experience in React, Next.js, and Angular, building dynamic and efficient web applications.",
-          "links": [{ "title": "Download Resume", "href": "/resume.pdf" }],
+          "links": [{ "title": "Download Resume", "href": "/resume.pdf" }]
         }
       }
     },
@@ -43,29 +43,72 @@ export default function Widgets() {
       }
     },
     {
-      title: "SimpleBanner",
+      title: 'Experience',
+      icon: Briefcase,
+      component: {
+        "title": "Experience",
+        "template": "Experience",
+        "data": {
+          "title": "Experience",
+          "description": "My work experience in various roles.",
+          "items": [
+            {
+              "title": "Next Education",
+              "role": "Engineer",
+              "duration": "Aug 2022 - Present",
+              "location": "Hyderabad, Telangana",
+              "responsibilities": "Developed web applications using React and Angular."
+            },
+            {
+              "title": "Tata Consultancy Services",
+              "role": "Assistant System Engineer",
+              "duration": "July 2019 - Sept 2020",
+              "location": "Remote",
+              "responsibilities": "Supported Angular front-ends and handled backend integrations."
+            }
+          ]
+        }
+      }
+    },
+    {
+      title: 'Portfolio',
+      icon: Layers,
+      component: {
+        "title": "Portfolio",
+        "template": "Portfolio",
+        "data": {
+          "title": "Portfolio",
+          "description": "A showcase of my projects.",
+          "links": [
+            { "title": "Portfolio Editor", "href": "?edit=true" },
+            { "title": "Spell Bee Game", "href": "portfolio/spell-bee" },
+            { "title": "Speak Right Tool", "href": "portfolio/pronunciation" }
+          ]
+        }
+      }
+    },
+    {
+      title: "Simple Banner",
       icon: TicketSlash,
       component: {
-        "title": "SimpleBanner",
+        "title": "Simple Banner",
         "template": "SimpleBanner",
         "data": {
-          "styles": { "backgroundColor": "var(--bg-card)" },
           "description": "Thinking of a new project? Got any doubts? I'm here to help!",
           "links": [{ "title": "Contact", "href": "#contact" }]
         }
       }
     },
     {
-      title: "FeaturedBanner", 
+      title: "Featured Banner", 
       icon: TicketSlash,
       component: {
-        "title": "FeaturedBanner",
+        "title": "Featured Banner",
         "template": "FeaturedBanner",
         "data": {
-          "styles": { "backgroundColor": "var(--bg-card)" },
           "title": "Check Out My YouTube Channel",
           "description": "Explore tutorials, projects, and more on my channel!",
-          "links": [{ "title": " Visit My YouTube Channel", "href": "https://www.youtube.com/@vijayreddy4411" }]
+          "links": [{ "title": "Visit My YouTube Channel", "href": "https://www.youtube.com/@vijayreddy4411" }]
         }
       }
     },
@@ -73,56 +116,32 @@ export default function Widgets() {
       title: "GitHub Contributions",
       icon: Github,
       component: {
-        "title": "GitHubCalendar",
+        "title": "GitHub Calendar",
         "template": "GitHubCalendar",
         "data": {
-          "styles": { "backgroundColor": "var(--bg-card)" },
-          "title": "Here is So Far",
+          "title": "GitHub Contributions",
           "github_username": "vijay18399"
         }
       }
-    },
-
+    }
   ];
+  
 
   return (
-    <WidgetsList>
+    <div className="widgets-list">
       {widgets.map((widget) => {
         let Icon = widget.icon;
         return (
-          <WidgetsItem
+          <div
             key={widget.title}
+            className="widgets-item"
             onClick={() => onAddSection(widget)}
           >           
             <span>{widget.title}</span>
             {Icon ? <Icon size={24} /> : <img src={widget.imageUrl} alt={widget.title} width={40} height={40} />}
-          </WidgetsItem>
+          </div>
         );
       })}
-    </WidgetsList>
+    </div>
   );
 }
-
-const WidgetsList = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const WidgetsItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: var(--gap-md);
-  border-bottom: 1px solid var(--border-color);
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: var(--bg-primary);
-  }
-
-  span {
-    font-size: var(--font-p);
-    color: var(--text-default-title);
-  }
-`;

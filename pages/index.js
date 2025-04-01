@@ -1,12 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import DynamicSections from "@/components/main/DynamicSections";
-import SectionEditorContainer from '@/components/sidebar/SectionEditorContainer'
+import SectionEditorContainer from '@/components/editor/sidebar/SectionEditorContainer'
 import { globalContext } from "@/context/GlobalContext";
-import SideBar from '@/components/sidebar/SideBar';
+import SideBar from '@/components/editor/sidebar/SideBar';
+import StylesWrapper from '@/components/main/StylesWrapper'
 import { init } from '@/features/page/pageSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import path from 'path'
 import fs from 'fs';
+
+
 export async function getStaticProps () {
   const filePath = path.join(process.cwd(), 'public', 'data', 'portfolio.json');
     const jsonData = fs.readFileSync(filePath, 'utf-8');
@@ -26,9 +29,11 @@ export default function Home({ portfolio }) {
   return (
     <div className="layout">
       {isEditMode && <SideBar/>}
-      <main className="container">
+      <StylesWrapper>
+      <main id="main" className="container">
         <DynamicSections/>
       </main>
+      </StylesWrapper>
       {isEditMode && <SectionEditorContainer/>}
     </div>
   );

@@ -50,6 +50,7 @@ export const pageSlice = createSlice({
       }
 
       state.value.sections.push(newSection);
+      state.value.selectedSectionId = newSection.id;
     },
     updateSection: (state, action) => {
       const { id, data } = action.payload;

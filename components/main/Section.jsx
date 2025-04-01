@@ -1,5 +1,5 @@
 import templateMap from "@/utils/templateMap";
-import SectionControls from '@/components/main/SectionControls';
+import SectionControls from '@/components/editor/main/SectionControls';
 import styled from "styled-components";
 
 export default function Section({ data }) {
@@ -30,8 +30,9 @@ const SectionWrapper = styled.section`
   justify-content: center;
   min-height: 150px;
   padding: var(--padding-md);
+  scroll-margin: 30px 0px;
   width: 100%;
-  margin: 20px 0px;
+  margin: 42px 0;
 `;
 
 const SectionColumn = styled.div`

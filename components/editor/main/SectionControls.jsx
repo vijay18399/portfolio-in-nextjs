@@ -1,6 +1,5 @@
-import React, {useContext} from "react";
-import { Trash2, Copy, ArrowUp, ArrowDown } from "lucide-react"; // Import icons from lucide-react
-import styled from "styled-components"; // Import styled-components
+import React, { useContext } from "react";
+import { Trash2, Plus, Copy, ArrowUp, ArrowDown } from "lucide-react"; // Import icons from lucide-react
 import { useSelector, useDispatch } from 'react-redux'; // Import hooks from redux
 import { setSelectedSectionId, addSection, toggleVisibility, reorderSections, init } from "@/features/page/pageSlice";
 import { globalContext } from '@/context/GlobalContext'
@@ -8,6 +7,7 @@ export default function SectionControls({ data }) {
   const { isEditMode } = useContext(globalContext);
   const dispatch = useDispatch();
   const page = useSelector((state) => state.page.value);
+  const { setActiveTab } = useContext(globalContext);
 
   const onAddSection = (position) => {
     const newSection = {
@@ -74,87 +74,41 @@ export default function SectionControls({ data }) {
   };
 
   const onSelect = () => {
+    setActiveTab("")
     dispatch(setSelectedSectionId(data.id)); // Set the selected section ID
   };
-  if(!isEditMode) return null;
+
+  if (!isEditMode) return null;
+
   return (
-    <SectionControlsWrapper onClick={onSelect} isActive={data.id === page.selectedSectionId}>
+    <div
+      className={`section-controls-wrapper ${data.id === page.selectedSectionId ? 'active' : ''}`}
+      onClick={onSelect}
+    >
       {data.id === page.selectedSectionId && (
         <>
-          <AddSectionButton className="top" onClick={() => onAddSection("top")}>
-            + Add Section
-          </AddSectionButton>
-          <SectionControlsButtonGroup>
-            <SwapTopButton onClick={onSwapTop}>
+          <button className="add-section-button top" onClick={() => onAddSection("top")}>
+            <Plus size={16} /> Add Section
+          </button>
+          <div className="section-controls-button-group">
+            <button className="swap-top-button" onClick={onSwapTop}>
               <ArrowUp size={16} />
-            </SwapTopButton>
-            <SwapDownButton onClick={onSwapDown}>
+            </button>
+            <button className="swap-down-button" onClick={onSwapDown}>
               <ArrowDown size={16} />
-            </SwapDownButton>
-            <DeleteButton onClick={onDelete}>
+            </button>
+            <button className="delete-button" onClick={onDelete}>
               <Trash2 size={16} />
-            </DeleteButton>
-            <CopyButton onClick={onCopy}>
+            </button>
+            <button className="copy-button" onClick={onCopy}>
               <Copy size={16} />
-            </CopyButton>
-          </SectionControlsButtonGroup>
-          <AddSectionButton className="bottom" onClick={() => onAddSection("bottom")}>
-            + Add Section
-          </AddSectionButton>
+            </button>
+          </div>
+          <button className="add-section-button bottom" onClick={() => onAddSection("bottom")}>
+          <Plus size={16} /> Add Section
+          </button>
         </>
       )}
-    </SectionControlsWrapper>
+    </div>
   );
 }
-
-// Styled Components
-
-const SectionControlsWrapper = styled.div`
-  cursor: pointer;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: ${(props) => (props.isActive ? '#d5e8ff24' : 'transparent')} ;
-  z-index: 4;
-  border: 2px solid ${(props) => (props.isActive ? 'var(--fill-primary-active)' : "transparent")};
-  border-radius: 12px;
-`;
-
-const AddSectionButton = styled.button`
-  position: absolute;
-  font-size: 12px;
-  left: calc(50% - 50px);
-  background: var(--fill-primary-active);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 10px;
-  font-weight: 900;
-
-  &.top {
-    top: -16px;
-  }
-
-  &.bottom {
-    bottom: -16px;
-  }
-`;
-
-const SectionControlsButtonGroup = styled.div`
-  position: absolute;
-  top: -35px;
-  background: var(--fill-primary-active);
-  color: white;
-  padding: 6px;
-  gap: 10px;
-  display: flex;
-  border-radius: 10px;
-  right: 10px;
-`;
-
-const SwapTopButton = styled.button``;
-
-const SwapDownButton = styled.button``;
-
-const DeleteButton = styled.button``;
-
-const CopyButton = styled.button``;

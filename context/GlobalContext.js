@@ -5,7 +5,7 @@ export const GlobalProvider = ({ children }) => {
   const router = useRouter();
   const [isEditMode, setIsEditMode] = useState(false);
   const [portfolio, setPortfolio] = useState(null);
-
+  const [activeTab, setActiveTab] = useState("");
   useEffect(() => {
     const editParam = router.query.edit;
     setIsEditMode(editParam === "true");
@@ -16,7 +16,9 @@ export const GlobalProvider = ({ children }) => {
     value={{ 
       isEditMode,
       portfolio,
-      setPortfolio 
+      setPortfolio,
+      activeTab, 
+      setActiveTab
       }}>
       {children}
     </globalContext.Provider>

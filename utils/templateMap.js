@@ -1,12 +1,12 @@
 import Section from "@/components/main/Section";
-import IntroSection from "@/components/sections/Intro";
-import Experience from "@/components/blocks/Experience";
-import Header from "@/components/sections/Header";
-import SimpleBanner from "@/components/sections/SimpleBanner";
-import Portfolio from "@/components/blocks/Portfolio";
+import IntroSection from "@/components/portfolio/Intro";
+import Experience from "@/components/portfolio/Experience";
+import Header from "@/components/portfolio/Header";
+import SimpleBanner from "@/components/portfolio/SimpleBanner";
+import Portfolio from "@/components/portfolio/Portfolio";
 import SectionPlaceHolder from '@/components/main/SectionPlaceHolder'
-import GitHubCalendar from "@/components/sections/GitHubCalendar";
-import FeaturedBanner from "@/components/sections/FeaturedBanner";
+import GitHubCalendar from "@/components/portfolio/GitHubCalendar";
+import FeaturedBanner from "@/components/portfolio/FeaturedBanner";
 const templateMap = {
     "Section": {
         component: Section,
@@ -34,11 +34,11 @@ const templateMap = {
     },
     "Experience": {
         component: Experience,
-        properties: ["title","description"]
+        properties: ["title","description","items"]
     },
     "Portfolio": {
         component: Portfolio,
-        properties: ["title"]
+        properties: ["title", "description","links"]
     },
     "SectionPlaceHolder": {
         component: SectionPlaceHolder,

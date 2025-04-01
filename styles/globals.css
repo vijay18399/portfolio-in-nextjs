@@ -1,55 +1,3 @@
-/* Colors */
-:root {
-  /* Background Colors */
-  --bg-primary: #F0F2F5;
-  --bg-secondary: #fff;
-  --bg-card: #fff;
-  --bg-banner: #32104e;
-  --bg-banner-hover: #d3c8e1;
-
-  /* Text Colors */
-  --text-default-title: #1e1e22;
-  --text-default-body: #494a4a;
-  --text-default-caption: #494a4a;
-  --text-static-white: #ffff;
-  --text-primary: #333;
-  --text-secondary: #777;
-  --text-muted: #555;
-
-  /* Fill and Button Colors */
-  --fill-primary-active: #017561;
-  --fill-secondary-active: #d5e8ff;
-  --button-primary-bg: #017561;
-  --button-primary-hover-bg: #01664E;
-  --button-secondary-bg: #ede8f0;
-  --button-secondary-hover-bg: #d3c8e1;
-
-  /* Border and Shadows */
-  --border-color: #e2e2e2;
-  --box-shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-
-  /* Spacing and Radius */
-  --border-radius: 8px;
-  --padding-md: 20px;
-  --gap-md: 10px;
-
-  /* Fonts */
-  --font-h1: 32px;
-  --font-h2: 24px;
-  --font-h3: 22px;
-  --font-h4: 20px;
-  --font-h5: 18px;
-  --font-h6: 16px;
-  --font-p: 16px;
-
-  /* Profile */
-  --profile-image: url('/images/profile_default.png');
-
-}
-
- 
-
-
 
 html,
 body {
@@ -148,3 +96,180 @@ blockquote p {
   opacity: 0.3;
   margin-top: 12px;
 }
+/* Tag Name Styles for Each Tag */
+.tag-highlight h1::before {
+  content: "h1";
+    font-weight: bold;
+    color: #000;
+    border: 1px #c5c5c5;
+    background: #E0F2F1;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 99999;
+    border-style: dashed;
+}
+
+.tag-highlight h2::before {
+  content: "h2"; /* Tag name for h2 */
+    font-weight: bold;
+    color: #000;
+    border: 1px #c5c5c5;
+    background: #E0F2F1;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 99999;
+    border-style: dashed;
+}
+
+.tag-highlight h3::before {
+  content: "h3"; /* Tag name for h3 */
+    font-weight: bold;
+    color: #000;
+    border: 1px #c5c5c5;
+    background: #E0F2F1;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 99999;
+    border-style: dashed;
+}
+
+.tag-highlight h4::before {
+  content: "h4"; /* Tag name for h4 */
+    font-weight: bold;
+    color: #000;
+    border: 1px #c5c5c5;
+    background: #E0F2F1;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 99999;
+    border-style: dashed;
+}
+
+.tag-highlight h5::before {
+  content: "h5"; /* Tag name for h5 */
+    font-weight: bold;
+    color: #000;
+    border: 1px #c5c5c5;
+    background: #E0F2F1;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 99999;
+    border-style: dashed;
+}
+
+.tag-highlight h6::before {
+  content: "h6"; /* Tag name for h6 */
+    font-weight: bold;
+    color: #000;
+    border: 1px #c5c5c5;
+    background: #E0F2F1;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 99999;
+    border-style: dashed;
+}
+
+.tag-highlight p::before {
+  content: "p"; /* Tag name for p */
+    font-weight: bold;
+    color: #000;
+    border: 1px #c5c5c5;
+    background: #E0F2F1;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 99999;
+    border-style: dashed;
+}
+.tag-highlight li::before {
+    content: "li";
+    font-weight: bold;
+    color: #000;
+    border: 1px #c5c5c5;
+    background: #E0F2F1;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 99999;
+    border-style: dashed;
+}
+/* Style to highlight elements with the tag names */
+.tag-highlight h1,
+.tag-highlight h2,
+.tag-highlight h3,
+.tag-highlight h4,
+.tag-highlight h5,
+.tag-highlight h6,
+.tag-highlight li,
+.tag-highlight p {
+  outline: 1px dashed #c4d2cf;
+  border-radius: 4px;
+  padding: 8px;
+  position: relative;
+  margin: 10px;
+}
+
+/* Mobile responsiveness for smaller screens */
+@media screen and (max-width: 600px) {
+  .tag-highlight h1::before,
+  .tag-highlight h2::before,
+  .tag-highlight h3::before,
+  .tag-highlight h4::before,
+  .tag-highlight h5::before,
+  .tag-highlight h6::before,
+  .tag-highlight li::before,
+  .tag-highlight p::before {
+    font-size: 14px; /* Smaller font size for mobile */
+    padding: 2px 6px; /* Adjust padding */
+    top: -20px; /* Adjust tag position for mobile */
+  }
+
+  .tag-highlight h1,
+  .tag-highlight h2,
+  .tag-highlight h3,
+  .tag-highlight h4,
+  .tag-highlight h5,
+  .tag-highlight h6,
+  .tag-highlight li,
+  .tag-highlight p {
+    padding: 10px; /* Adjust padding left for mobile */
+  }
+}
+.rc-slider-track, .rc-slider-tracks {
+background-color: #01664E !important;
+}
+.rc-slider-handle{
+border-color: #01664E !important;
+}
+
+
