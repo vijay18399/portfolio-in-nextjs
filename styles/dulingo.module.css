@@ -1,24 +1,4 @@
-:root {
-  --duo-primary: #FAB017;
-  --duo-primary-dark: #b47d0a;
-  --duo-secondary: #70BAB8;
-  --duo-green: #58cc02;
-  --duo-blue: #1cb0f6;
-  --duo-orange: #ff9f1c;
-  --duo-red: #ff4d4f;
-  --duo-purple: #9b51e0;
-  --duo-white: #ffffff;
-  --duo-gray: #e5e5e5;
-  --duo-dark-gray: #cccccc;
-  --duo-text: #333333;
-  --duo-light-text: #666666;
-  --radius-lg: 24px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
-  --shadow-btn: 0 4px var(--duo-primary-dark);
-  --shadow-btn-active: 0 2px var(--duo-primary-dark);
-}
-/* LevelSelection */
+
 .container {
   display: flex;
   justify-content: space-between;
