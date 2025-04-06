@@ -6,6 +6,7 @@ import { GlobalProvider } from "@/context/GlobalContext";
 import { Lato, Plus_Jakarta_Sans } from 'next/font/google';
 import '@/styles/portfolio.css'
 import '@/styles/editor.css'
+
 const lato = Lato({
   weight: ['400', '700'],
   style: ['normal', 'italic'],
@@ -18,10 +19,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
 });
+
 export default function App({ Component, pageProps }) {
   return <Provider store={store}>
             <GlobalProvider>  
-              <div className={`${plusJakartaSans.className} main`} >
+              <div className={`main ${plusJakartaSans.className} `} >
                   <Component {...pageProps} />
               </div>
             </GlobalProvider>

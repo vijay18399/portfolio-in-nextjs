@@ -14,8 +14,14 @@ export const wordSlice = createSlice({
       state.words = action.payload;
     },
     updateWordStatus: (state, action) => {
-      const { index, isCorrect,isSkipped,userAnswer } = action.payload;
-      state.words[index] = { ...state.words[index], isCorrect,isSkipped,userAnswer :  userAnswer ? userAnswer : state.words[index].userAnswer};
+      const { index, isCorrect, isSkipped = false, userAnswer } = action.payload;
+      state.words[index] = {
+        ...state.words[index],
+        userAnswer,
+        isCorrect,
+        isSkipped,
+        status: isSkipped ? 'skipped' : isCorrect ? 'success' : 'fail',
+      };
     },
     increment: (state) => {
       state.currentWordIndex = state.currentWordIndex + 1;

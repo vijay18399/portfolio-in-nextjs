@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   transpilePackages: ['mui-color-input'],
-  output: "export",
+  // output: "export",
   basePath: "/portfolio-in-nextjs", 
   assetPrefix: "/portfolio-in-nextjs/",
   images: {

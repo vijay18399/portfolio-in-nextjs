@@ -1,37 +1,23 @@
 import React from 'react';
-import styled from 'styled-components';
+import styles from '@/styles/dulingo.module.css';
+import clsx from 'clsx';
 
-function getColor(sentenceState, isInSpeech,highlight) {
-    if (sentenceState === "RECORDING") {
-        return isInSpeech ? "#83B963" :( highlight ? "white" : "#424242");
-    } else if (sentenceState === "FAIL") {
-        return isInSpeech ? "#83B963" : "#FF5722";
-    } else if (sentenceState === "SUCCESS") {
-        return "#83B963";
-    } else {
-        return "#424242";
-    }
-}
-function getBgColor(sentenceState, highlight) {
-   if (sentenceState === "RECORDING") {
-       return highlight ? "#59AAEC" : "transparent";
-   } else {
-       return "transparent";
-   }
-}
+const Word = ({ text, spoken, sentenceState, speakText, highlight }) => {
+  const getClassNames = () => {
+    return clsx(styles.word, {
+      [styles.recording]: sentenceState === 'RECORDING',
+      [styles.success]: sentenceState === 'SUCCESS',
+      [styles.fail]: sentenceState === 'FAIL',
+      [styles.spoken]: spoken,
+      [styles.highlight]: highlight && sentenceState === 'RECORDING',
+    });
+  };
 
-const StyledWord = styled.li`
-    cursor: pointer;
-    font-size: 22px;
-    font-weight: 600;
-    padding: 8px;
-    border-radius: 10px;
-    background-color: ${(props) => getBgColor(props.$sentenceState,props.$highlight) };
-    color: ${(props) => getColor(props.$sentenceState, props.$isInSpeech,props.$highlight)};
-`;
-
-const Word = ({ text, spoken, sentenceState,speakText, highlight }) => {
-    return <StyledWord   onClick={() => speakText(text)} $sentenceState={sentenceState} $isInSpeech={spoken} $highlight={highlight}>{text}</StyledWord>;
+  return (
+    <li style={{ background: sentenceState === 'FAIL' ? '#FAFAFA' : '' }} className={getClassNames()} onClick={() => speakText(text)}>
+      {text}
+    </li>
+  );
 };
 
 export default Word;

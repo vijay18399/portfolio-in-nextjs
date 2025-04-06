@@ -1,18 +1,16 @@
 import React from 'react';
-import { StyledContainer, StyledDescription, StyledCard, StyledTitle, StartButton } from '../common/StyledComponents';
+import styles from '@/styles/dulingo.module.css'; // Update path if needed
 
 export default function InitScreen({ onStart }) {
   return (
-    <StyledContainer>
-      <StyledCard>
-        <StyledTitle>
-          Listen, Speak & Loop
-        </StyledTitle>
-        <StyledDescription>
-          Practice Pronunciation
-        </StyledDescription>
-        <StartButton onClick={onStart}>Start Practice</StartButton>
-      </StyledCard>
-    </StyledContainer>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2 className={styles.title}>Listen, Speak & Loop</h2>
+        <p className={styles.description}>Practice Pronunciation</p>
+      </div>
+      <button className={`${styles.button} ${styles.btnGreen}`} onClick={onStart}>
+          Start Practice
+        </button>
+    </div>
   );
 }
